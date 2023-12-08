@@ -6,7 +6,7 @@ The "Python Dice Roller" is a simple console-based Python program that simulates
 ### README:
 
 #### How to Use:
-1. Run the Python script (`python dice_roller.py`) in a Python environment.
+1. Run the Python script (`python_dice_roller.py`) in a Python environment.
 2. Follow the on-screen instructions to select the desired dice rolling feature.
 
 #### Features:
