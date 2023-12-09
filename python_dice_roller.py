@@ -1,44 +1,54 @@
 import random as rd
-print('hey, I am a dice what do you want me to do')
-
-FEATURE = int(input('the features i offer are \n 1. One Die \n 2. Two Dice \n 3. Three Dice \n 4. Custom Number of Dice with custom number of faces \n'))
 
 def one_die():
-    ROLL = rd.randint(1,6)
-    print('You got a ', ROLL)
-
+    ROLL = rd.randint(1, 6)
+    print('You got a', ROLL)
 
 def two_dice():
-    ROLL1 = rd.randint(1,6)
-    ROLL2 = rd.randint(1,7)
+    ROLL1 = rd.randint(1, 6)
+    ROLL2 = rd.randint(1, 7)
     print('You got a', ROLL1, ROLL2)
-    
+
 def three_dice():
-    ROLL1 = rd.randint(1,6)
-    ROLL2 = rd.randint(1,6)
-    ROLL3 = rd.randint(1,6)
+    ROLL1 = rd.randint(1, 6)
+    ROLL2 = rd.randint(1, 6)
+    ROLL3 = rd.randint(1, 6)
     print('You got a', ROLL1, ROLL2, ROLL3)
 
 def custom_dice():
     FACES = int(input('Enter the number of faces: '))
     NUMBER_DICES = int(input('Enter the number of dice: '))
-    ROLLS = []
-    for _ in range(NUMBER_DICES):
-        ROLLS.append(rd.randint(1, FACES))
+    ROLLS = [rd.randint(1, FACES) for _ in range(NUMBER_DICES)]
     rolls_as_string = ', '.join(map(str, ROLLS))
-    print(rolls_as_string)
+    print('You got:', rolls_as_string)
 
-    
+def main():
+    while True:
+        print('\nHey, I am a dice. What do you want me to do?')
+        FEATURE = int(input('The features I offer are:'
+                            '\n1. One Die'
+                            '\n2. Two Dice'
+                            '\n3. Three Dice'
+                            '\n4. Custom Number of Dice with custom number of faces'
+                            '\n5. Quit\n'))
 
+        if FEATURE == 1:
+            one_die()
+        elif FEATURE == 2:
+            two_dice()
+        elif FEATURE == 3:
+            three_dice()
+        elif FEATURE == 4:
+            custom_dice()
+        elif FEATURE == 5:
+            print('Goodbye!')
+            break
+        else:
+            print('Invalid option. Please choose a valid option.')
 
-if FEATURE == 1:
-    one_die()
+        play_again = input('Do you want to try again? (yes/no): ').lower()
+        if play_again != 'yes':
+            print('Goodbye!')
+            break
 
-if FEATURE == 2:
-    two_dice()
-
-if FEATURE == 3:
-    three_dice()
-    
-if FEATURE == 4:
-    custom_dice()
+main()
